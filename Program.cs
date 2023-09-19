@@ -81,3 +81,32 @@ for(int i = 0; i < values.Length; i++)
 
 int max = values.Max();
 Console.WriteLine($"Максимальное число {max}");
+
+//Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+
+int value = 0;
+First: Console.WriteLine("Введите число.");
+string? input = Console.ReadLine();
+
+try
+{
+    value = Convert.ToInt32(input);
+}
+catch (FormatException)
+{
+    Console.WriteLine("Некорректный ввод. Введите целое число.");
+    goto First;
+}
+catch (OverflowException)
+{
+    Console.WriteLine("Введенное число выходит из диапазона значений Int32");
+    goto First;    
+}
+
+if((value % 2) == 0)
+{
+    Console.WriteLine("Четное.");
+} else {
+    Console.WriteLine("Нечетное.");
+}
+
