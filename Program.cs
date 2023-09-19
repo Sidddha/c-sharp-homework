@@ -50,3 +50,34 @@ if(value1 < value2)
 } else {
     Console.WriteLine($"{value1} = {value2}");
 }
+
+//Задача 4: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+
+using System;
+using System.Runtime.ExceptionServices;
+
+int[] values = new int[3];
+
+for(int i = 0; i < values.Length; i++)
+{
+    First: Console.WriteLine($"Введите число № {i+1}.");
+    string? input = Console.ReadLine();
+
+    try
+    {
+        values[i] = Convert.ToInt32(input);
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Некорректный ввод. Введите целое число.");
+        goto First;
+    }
+    catch (OverflowException)
+    {
+        Console.WriteLine("Введенное число выходит из диапазона значений Int32");
+        goto First;    
+    }
+}
+
+int max = values.Max();
+Console.WriteLine($"Максимальное число {max}");
