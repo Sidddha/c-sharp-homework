@@ -153,3 +153,102 @@ if(value > 1)
     Console.WriteLine("Нет четных чисел.");
 }
 
+
+// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+
+using System;
+using System.Runtime.ExceptionServices;
+
+int value = 0;
+
+First: Console.WriteLine("Введите трехзначное число.");
+string? input = Console.ReadLine();
+
+try
+{
+    value = Convert.ToInt32(input);
+}
+catch (FormatException)
+{
+    Console.WriteLine("Некорректный ввод. Введите целое число.");
+    goto First;
+}
+catch (OverflowException)
+{
+    Console.WriteLine("Введенное число выходит из диапазона значений Int32");
+    goto First;    
+}
+
+value = (value/10)%10;
+Console.WriteLine(value);
+
+//Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+
+using System;
+using System.Runtime.ExceptionServices;
+
+int value = 0;
+
+First: Console.WriteLine("Введите трехзначное число.");
+string? input = Console.ReadLine();
+
+try
+{
+    value = Convert.ToInt32(input);
+}
+catch (FormatException)
+{
+    Console.WriteLine("Некорректный ввод. Введите целое число.");
+    goto First;
+}
+catch (OverflowException)
+{
+    Console.WriteLine("Введенное число выходит из диапазона значений Int32");
+    goto First;    
+}
+
+if(value < 100)
+{
+    Console.WriteLine("Это двухзначное число.");
+} else 
+{
+    value = (value % 100) % 10;
+    Console.WriteLine(value);
+}
+
+// Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+
+using System;
+using System.Runtime.ExceptionServices;
+
+int value = 0;
+
+First: Console.WriteLine("Введите цифру от 1 до 7.");
+string? input = Console.ReadLine();
+
+try
+{
+    value = Convert.ToInt32(input);
+}
+catch (FormatException)
+{
+    Console.WriteLine("Некорректный ввод. Введите целое число.");
+    goto First;
+}
+catch (OverflowException)
+{
+    Console.WriteLine("Введенное число выходит из диапазона значений Int32");
+    goto First;    
+}
+if(value < 1 || value > 7)
+{
+    Console.WriteLine("Некорректный ввод. Введите число от 1 до 7.");
+    goto First;
+}
+if(value == 6 || value == 7)
+{
+    Console.WriteLine("Выходной.");
+} else 
+{
+    Console.WriteLine("Рабочий.");
+}
