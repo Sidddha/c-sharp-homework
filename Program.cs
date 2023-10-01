@@ -359,13 +359,98 @@
 
 // Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
-int[] array = new int[8];
+// int[] array = new int[8];
+// Random random = new Random();
+// for(int i = 0; i < array.Length; i++)
+// {
+//     array[i] = random.Next();
+// }
+// for(int i = 0; i < array.Length; i++)
+// {
+//     Console.WriteLine(array[i]);
+// }
+
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+
+// int[] array = new int[5];
+// Random random = new Random();
+// for(int i = 0; i < array.Length; i++)
+// {
+//     array[i] = random.Next(100, 999);
+// }
+
+// int evens = 0;
+// for(int i = 0; i < array.Length; i++)
+// {
+//     if((array[i] % 2) == 0) evens++;
+//     else continue;
+// }
+// for(int i = 0; i < array.Length; i++)
+// {
+//     Console.Write($"{array[i]} "); 
+// }
+// Console.WriteLine($"\n{evens}");
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+// int[] array = new int[10];
+// Random random = new Random();
+// for(int i = 0; i < array.Length; i++)
+// {
+//     array[i] = random.Next(5);
+// }
+// int sum = 0;
+// for(int i = 0; i < array.Length; i++)
+// {
+//     if(((i+1) % 2) != 0) sum += array[i];
+// }
+
+// for(int i = 0; i < array.Length; i++)
+// {
+//     Console.Write($"{array[i]} "); 
+// }
+// Console.WriteLine($"\n{sum}");
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+int[] array = new int[10];
 Random random = new Random();
 for(int i = 0; i < array.Length; i++)
 {
-    array[i] = random.Next();
+    array[i] = random.Next(1, 1000);
 }
-for(int i = 0; i < array.Length; i++)
+
+void printArray(int[] array)
 {
-    Console.WriteLine(array[i]);
+    for(int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} "); 
+    }    
+    Console.WriteLine();
 }
+
+int findMax(int[] array)
+{
+    int max = 0;
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[i] > max) max = array[i];
+    }
+    return max;
+}
+
+int findMin(int[] array)
+{
+    int min = array[0];
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[i] < min) min = array[i];
+    }
+    return min;
+}
+
+int max = findMax(array);
+int min = findMin(array);
+printArray(array);
+Console.WriteLine($"max = {max}\nmin = {min}");
+Console.WriteLine($"max - min = {max - min}");
